@@ -1,3 +1,12 @@
+/* Google Sans Flex (OFL), servida desde el propio sitio: ninguna petición a terceros. */
+@font-face {
+  font-family: "Google Sans Flex";
+  src: url("fuentes/google-sans-flex.woff2") format("woff2");
+  font-weight: 1 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --fondo: #fcfcfb;
   --superficie: #ffffff;
@@ -9,8 +18,7 @@
   --sin-datos: #ecebe6;
   --acento: #1b1b1a;
   --sombra: 0 1px 2px rgb(0 0 0 / .04), 0 8px 24px rgb(0 0 0 / .06);
-  --serif: "Newsreader", Georgia, serif;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Google Sans Flex", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -41,10 +49,10 @@ body {
   background: var(--fondo);
   color: var(--tinta);
   font: 400 16px/1.5 var(--sans);
-  font-feature-settings: "tnum" 1, "cv11" 1;
+  font-feature-settings: "tnum" 1;
   padding-bottom: 88px;
 }
-h1, h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -.01em; margin: 0; }
+h1, h2 { font-weight: 600; letter-spacing: -.01em; margin: 0; }
 h2 { font-size: 1.25rem; line-height: 1.25; }
 .ayuda { color: var(--tinta-2); font-size: .875rem; margin: .25rem 0 1rem; }
 
@@ -89,7 +97,7 @@ h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; margin-bottom: 1.25re
 .lista__nombre { font-weight: 600; font-size: 1.0625rem; display: flex; align-items: center; gap: .5rem; min-width: 0; }
 .lista__nombre i { flex: none; width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
 .lista__nombre em { font-style: normal; font-size: .75rem; font-weight: 600; color: var(--tinta-2); border: 1px solid var(--linea-fuerte); border-radius: 999px; padding: 0 .45rem; }
-.lista__pct { font-family: var(--serif); font-size: 2rem; font-weight: 600; line-height: 1; text-align: right; }
+.lista__pct { font-size: 2rem; font-weight: 600; line-height: 1; text-align: right; }
 .lista__votos { grid-column: 1 / -1; display: flex; align-items: center; gap: .75rem; }
 .lista__barra { flex: 1; height: 10px; background: var(--sin-datos); border-radius: 0 4px 4px 0; overflow: hidden; }
 .lista__barra span { display: block; height: 100%; width: 0; background: var(--c); border-radius: 0 4px 4px 0; transition: width .5s cubic-bezier(.2,.7,.2,1); }
