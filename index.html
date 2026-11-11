@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elecciones en vivo</title>
+  <meta name="description" content="Escrutinio provisorio en vivo, por departamento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <main class="pagina">
+    <header class="cabecera">
+      <p class="volanta"><span class="pastilla" id="modo">Simulación de llegada</span> <span id="fecha"></span></p>
+      <h1 id="titulo">Cargando…</h1>
+      <div class="avance" aria-live="polite">
+        <div class="avance__texto">
+          <strong id="pct-mesas">0%</strong> de las mesas escrutadas
+          <span class="sep">·</span> <span id="hora">--:--</span>
+        </div>
+        <div class="avance__barra" role="progressbar" aria-label="Mesas escrutadas" aria-valuemin="0" aria-valuemax="100" id="barra-mesas">
+          <span id="barra-mesas-relleno"></span>
+        </div>
+      </div>
+    </header>
+
+    <section class="estado" id="estado" aria-live="polite"></section>
+
+    <section class="listas" id="listas" aria-label="Resultado provincial"></section>
+
+    <section class="grilla">
+      <figure class="mapa">
+        <figcaption>
+          <h2>Quién lidera en cada departamento</h2>
+          <p class="ayuda">El color es la lista que va primera; más intenso, mayor ventaja.</p>
+        </figcaption>
+        <div class="mapa__lienzo">
+          <svg id="mapa" role="img" aria-label="Mapa de departamentos"></svg>
+          <div class="tooltip" id="tooltip" hidden></div>
+        </div>
+        <div class="leyenda" id="leyenda"></div>
+      </figure>
+
+      <aside class="falta">
+        <h2>Dónde falta contar</h2>
+        <p class="ayuda">Votos que todavía no entraron, estimados con los electores de cada departamento y la participación que ya se ve.</p>
+        <ol id="falta"></ol>
+        <p class="falta__total" id="falta-total"></p>
+      </aside>
+    </section>
+
+    <section class="tabla-sec">
+      <h2>Por departamento</h2>
+      <div class="tabla-envoltorio">
+        <table id="tabla">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <p id="nota"></p>
+      <p id="fuente"></p>
+      <p>"Ventaja irremontable" quiere decir que la diferencia entre los dos primeros supera lo que podrían sumar las mesas que faltan si estuvieran llenas (350 electores cada una, el máximo legal) y votaran todos por el segundo. No es una proyección: en las provinciales no hay muestra de mesas testigo.</p>
+    </footer>
+  </main>
+
+  <nav class="reproductor" id="reproductor" aria-label="Reproducción">
+    <button id="play" type="button" aria-label="Reproducir">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path id="icono-play" d="M8 5v14l11-7z"/></svg>
+    </button>
+    <input id="deslizador" type="range" min="0" max="0" value="0" aria-label="Momento de la noche">
+    <span class="reproductor__hora" id="hora-repro">--:--</span>
+    <button id="velocidad" type="button" class="reproductor__vel" aria-label="Velocidad">1×</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
